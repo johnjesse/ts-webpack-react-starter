@@ -1,0 +1,22 @@
+{
+    "$schema": "http://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+      "outDir": "./dist/",
+      "noImplicitAny": true,
+      "noImplicitReturns": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "strict": true,
+      "sourceMap": true,
+      "module": "es6",
+      "target": "es5",
+      "jsx": "react",
+      "allowJs": true
+    },
+    "include": [
+      "src/**/*"
+  ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
