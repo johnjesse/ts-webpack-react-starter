@@ -1,5 +1,5 @@
 {
-  "name": "ts-gsap-starter",
+  "name": "ts-webpack-react-starter",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -21,6 +21,8 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "gsap": "^3.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
