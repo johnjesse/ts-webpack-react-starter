@@ -5,31 +5,30 @@ console.log('>>> running webpack dev config');
 
 module.exports = {
   entry: {
-    vendor: [
-      'react',
-      'react-dom',
-      'tslib',
-    ],
-    main: './src/index.tsx'
+    vendor: ['react', 'react-dom', 'tslib'],
+    main: path.join(__dirname, 'src', 'index.tsx'),
   },
   mode: 'development',
   devServer: {
+    index: 'index.html',
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000
+    port: 9000,
   },
   module: {
-    rules: [{
-      test: /\.tsx?$/,
-      loader: 'ts-loader',
-      exclude: path.join(__dirname, 'node_modules'),
-      options: {
-        configFile: "tsconfig.json",
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: path.join(__dirname, 'node_modules'),
+        options: {
+          configFile: 'tsconfig.json',
+        },
       },
-    }]
+    ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
   },
   output: {
     filename: '[name].bundle.js',
@@ -38,10 +37,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
-      template: './src/index.html',
+      template: 'src/index.html',
       chunks: ['vendor', 'main'],
-      path: path.join(__dirname, "./dist/"),
-      filename: 'index.html' 
-  })],
-  watch: true
-}
+      path: path.join(__dirname, 'dist'),
+      filename: 'index.html',
+    }),
+  ],
+  watch: true,
+};

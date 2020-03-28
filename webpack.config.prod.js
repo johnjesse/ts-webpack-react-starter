@@ -5,26 +5,24 @@ console.log('>>> running webpack prod config');
 
 module.exports = {
   entry: {
-    vendor: [
-      'react',
-      'react-dom',
-      'tslib',
-    ],
-    main: './src/index.tsx'
+    vendor: ['react', 'react-dom', 'tslib'],
+    main: path.join(__dirname, 'src', 'index.tsx'),
   },
   mode: 'production',
   module: {
-    rules: [{
-      test: /\.tsx?$/,
-      loader: 'ts-loader',
-      exclude: path.join(__dirname, 'node_modules'),
-      options: {
-        configFile: "tsconfig.json",
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: path.join(__dirname, 'node_modules'),
+        options: {
+          configFile: 'tsconfig.json',
+        },
       },
-    }]
+    ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
   },
   output: {
     filename: '[name].bundle.js',
@@ -35,7 +33,8 @@ module.exports = {
       hash: true,
       template: './src/index.html',
       chunks: ['vendor', 'main'],
-      path: path.join(__dirname, "./dist/"),
-      filename: 'index.html' 
-  })]
-}
+      path: path.join(__dirname, 'dist'),
+      filename: 'index.html',
+    }),
+  ],
+};
