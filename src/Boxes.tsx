@@ -12,10 +12,11 @@ const Box = styled.div({
 const NewBox = styled(Box)({ backgroundColor: 'orange' });
 
 export const Boxes = () => {
+  const timeline = React.useRef(gsap.timeline()).current;
+
   React.useLayoutEffect(() => {
     const boxes = document.querySelectorAll('#box');
-    const tl = gsap.timeline();
-    tl.from(boxes, {
+    timeline.from(boxes, {
       y: -300,
       ease: Bounce.easeOut,
       duration: 1,
@@ -24,9 +25,9 @@ export const Boxes = () => {
       },
     });
 
-    tl.add('rotate');
+    timeline.add('rotate');
 
-    tl.from(
+    timeline.from(
       boxes,
       {
         rotation: 90,
@@ -38,7 +39,7 @@ export const Boxes = () => {
       },
       'rotate-=0.25'
     );
-    tl.from(
+    timeline.from(
       boxes,
       {
         rotation: 180,
@@ -52,7 +53,7 @@ export const Boxes = () => {
     );
 
     const newBox = document.querySelectorAll('#newbox');
-    tl.from(
+    timeline.from(
       newBox,
       {
         rotation: 90,
@@ -61,7 +62,7 @@ export const Boxes = () => {
       },
       'rotate-=0.25'
     );
-    tl.from(
+    timeline.from(
       newBox,
       {
         rotation: 180,
@@ -74,12 +75,12 @@ export const Boxes = () => {
 
   return (
     <>
-      <NewBox id="newbox" />
-      <Box key="1" id="box" />
+      <NewBox id="newbox" onClick={() => timeline.restart()} />
+      <Box key="1" id="box" onClick={() => timeline.pause()} />
       <Box key="2" id="box" />
       <Box key="3" id="box" />
-      <Box key="4" id="box" />
-      <Box key="5" id="box" />
+      <Box key="4" id="box" onClick={() => timeline.resume()} />
+      <Box key="5" id="box" onClick={() => timeline.reverse()} />
     </>
   );
 };
