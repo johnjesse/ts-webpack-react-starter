@@ -1,13 +1,13 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Router, RouteComponentProps } from '@reach/router';
+import { Router } from '@reach/router';
 
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { GlobalStyling, Theme, IThemedProps } from './theme';
 import { Home, Blog, Contact, About } from './pages';
 
-const Container = styled.div<IThemedProps>(({ theme }) => ({
+const Container = styled.div<IThemedProps>({
   minWidth: '20rem',
   maxWidth: '45rem',
   margin: 'auto',
@@ -16,7 +16,7 @@ const Container = styled.div<IThemedProps>(({ theme }) => ({
   flexDirection: 'column',
   height: '100vh',
   width: '100vw',
-}));
+});
 
 const MainRouter = styled(Router)({
   padding: '24px 16px',
