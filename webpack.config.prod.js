@@ -19,6 +19,10 @@ module.exports = {
           configFile: 'tsconfig.json',
         },
       },
+      {
+        test: /\.(png)$/,
+        use: ['file-loader'],
+      },
     ],
   },
   resolve: {

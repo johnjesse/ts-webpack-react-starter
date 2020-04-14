@@ -14,6 +14,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
+    hot: true,
   },
   module: {
     rules: [
@@ -24,6 +25,10 @@ module.exports = {
         options: {
           configFile: 'tsconfig.json',
         },
+      },
+      {
+        test: /\.(png)$/,
+        use: ['file-loader'],
       },
     ],
   },
