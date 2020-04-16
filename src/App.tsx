@@ -8,19 +8,19 @@ import { GlobalStyling, Theme, IThemedProps } from './theme';
 import { Home, Blog, Contact, About } from './pages';
 
 const Container = styled.div<IThemedProps>({
-  minWidth: '20rem',
+  minWidth: '15rem',
   maxWidth: '45rem',
   margin: 'auto',
   padding: '0 2rem',
   display: 'flex',
   flexDirection: 'column',
   height: '100vh',
-  width: '100vw',
+  width: '100%',
 });
 
 const MainRouter = styled(Router)({
-  padding: '24px 16px',
-  flex: 1,
+  padding: '1.5rem 0',
+  flex: '1 0 auto',
 });
 
 export const App = () => (

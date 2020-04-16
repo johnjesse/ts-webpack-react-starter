@@ -45,10 +45,6 @@ const Slider = styled.span<IThemedProps>(({ theme }) => ({
     borderRadius: theme.spacing1,
   },
 
-  'input:checked + &': {
-    backgroundColor: theme.background03,
-  },
-
   'input:focus + &:before, input:hover + &:before': {
     boxShadow: `0px 0px 0.5rem ${theme.interactive01}`,
   },

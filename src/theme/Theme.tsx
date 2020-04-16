@@ -1,6 +1,6 @@
-import { ThemeProvider, useTheme } from 'emotion-theming';
+import { ThemeProvider, useTheme as emotionUseTheme } from 'emotion-theming';
 import * as React from 'react';
-import { DarkTheme, LightTheme } from './Themes';
+import { DarkTheme, LightTheme, ITheme } from './Themes';
 
 type ThemeConfig = { name: string; type: 'light' | 'dark' };
 type ThemeType = ThemeConfig['type'];
@@ -71,5 +71,7 @@ const Theme = ({ children }: IThemeProps) => {
     </ThemeTypeContext.Provider>
   );
 };
+
+const useTheme = emotionUseTheme as () => ITheme;
 
 export { Theme, ThemeTypeContext, useTheme };

@@ -49,8 +49,8 @@ const ThemeText: IThemeText = {
 
 const LightThemeColors: IThemeColors = {
   background01: '#ffffff',
-  background02: '#f4f4f4',
-  background03: '#8d8d8d',
+  background02: '#f1f1f1',
+  background03: '#b9b9b9',
   text01: '#000000',
   interactive01: '#8c1809',
   linkHover: '#e5e5e5',
@@ -64,7 +64,7 @@ const LightThemeBorders: IThemeBorders = {
 
 const DarkThemeColors: IThemeColors = {
   background01: '#161616',
-  background02: '#262626',
+  background02: '#3e3e3e',
   background03: '#6f6f6f',
   text01: '#ffffff',
   interactive01: '#ffa69a',

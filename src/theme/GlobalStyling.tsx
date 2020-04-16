@@ -17,10 +17,14 @@ const GlobalStyling = () => {
           background: ${theme.background01};
           margin: 0;
           font-size: 16px;
-          line-height: 1.5rem;
+          line-height: 1.5;
         }
         body {
           margin: 0;
+          -webkit-font-smoothing: 'antialiased',
+          -moz-os-fon-smoothing: 'grayscale',
+          -webkit-text-size-adjust: '100%',
+          -ms-text-size-adjust: '100%',
         }
 
         * {

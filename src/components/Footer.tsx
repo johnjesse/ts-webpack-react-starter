@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 import { Email32 } from '@carbon/icons-react';
 
-import { ThemeTypeContext, useTheme, ITheme, IThemedProps } from '../theme';
+import { ThemeTypeContext, useTheme, IThemedProps } from '../theme';
 import githubLight from '../static/GitHub-Mark-Light-32px.png';
 import githubDark from '../static/GitHub-Mark-32px.png';
 
@@ -30,7 +30,7 @@ const PaddedText = styled.span({ padding: '0 0.5rem' });
 
 const Footer = () => {
   const themeContext = React.useContext(ThemeTypeContext);
-  const theme = useTheme<ITheme>();
+  const theme = useTheme();
 
   if (!themeContext) {
     return null;
@@ -54,9 +54,9 @@ const Footer = () => {
         <PaddedText>GitHub</PaddedText>
       </StyledHyperlink>
       <StyledHyperlink href="mailto:TODO a proper email address">
-        <Email32 fill={theme.text01} /> <PaddedText>Email Me</PaddedText>
+        <Email32 fill={theme.text01} /> <PaddedText>Email</PaddedText>
       </StyledHyperlink>
-      <SmallText>(c) John J Wood</SmallText>
+      <SmallText>&#xa9; John J Wood</SmallText>
     </Container>
   );
 };
