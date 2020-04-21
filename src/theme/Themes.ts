@@ -11,6 +11,11 @@ interface IThemeColors {
   text01: string;
   interactive01: string;
   linkHover: string;
+
+  error: string;
+  warning: string;
+  success: string;
+  info: string;
 }
 
 interface IThemeBorders {
@@ -54,6 +59,11 @@ const LightThemeColors: IThemeColors = {
   text01: '#000000',
   interactive01: '#8c1809',
   linkHover: '#e5e5e5',
+
+  error: '#da1e28',
+  warning: '#f1c21b',
+  success: '#24a148',
+  info: '#0043ce',
 };
 
 const LightThemeBorders: IThemeBorders = {
@@ -69,6 +79,11 @@ const DarkThemeColors: IThemeColors = {
   text01: '#ffffff',
   interactive01: '#ffa69a',
   linkHover: '#353535',
+
+  error: '#fa4d56',
+  warning: '#f1c21b',
+  success: '#42be65',
+  info: '#4589ff',
 };
 
 const DarkThemeBorders: IThemeBorders = {
