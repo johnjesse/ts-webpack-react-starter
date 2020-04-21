@@ -30,6 +30,10 @@ module.exports = {
         test: /\.(png)$/,
         use: ['file-loader'],
       },
+      {
+        test: /\.(svg)$/,
+        use: ['raw-loader'],
+      },
     ],
   },
   resolve: {

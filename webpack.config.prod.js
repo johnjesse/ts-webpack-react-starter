@@ -1,11 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 console.log('>>> running webpack prod config');
 
 module.exports = {
   entry: {
-    vendor: ['react', 'react-dom', 'tslib'],
     main: path.join(__dirname, 'src', 'index.tsx'),
   },
   mode: 'production',
@@ -23,6 +23,10 @@ module.exports = {
         test: /\.(png)$/,
         use: ['file-loader'],
       },
+      {
+        test: /\.(svg)$/,
+        use: ['raw-loader'],
+      },
     ],
   },
   resolve: {
@@ -36,9 +40,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: true,
       template: './src/index.html',
-      chunks: ['vendor', 'main'],
+      chunks: ['main'],
       path: path.join(__dirname, 'dist'),
       filename: 'index.html',
     }),
+    new BundleAnalyzerPlugin(),
   ],
 };
