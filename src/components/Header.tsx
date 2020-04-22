@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
-import { Link } from '@reach/router';
 
 import { AppLink } from './Hyperlink';
 import { LinkMenu } from './LinkMenu';
@@ -14,13 +13,15 @@ const Container = styled.header<IThemedProps>(({ theme }) => ({
   justifyContent: 'space-between',
 }));
 
-const Title = styled.span({
-  fontSize: '30px',
-});
-
 const StyledLink = styled(AppLink)({
   padding: 4,
   borderRadius: 4,
+});
+
+const TitleLink = styled(StyledLink)({
+  display: 'flex',
+  alignItems: 'center',
+  flexDirection: 'column',
 });
 
 const MenuScreenBreakSize = 600;
@@ -56,11 +57,11 @@ const Header = ({ openMenu, onOpenMenuChange }: IHeaderProps) => {
 
   return (
     <Container>
-      <Title>
-        <Link to="/">
-          <MainAppImage />
-        </Link>
-      </Title>
+      <TitleLink to="/">
+        <div>John talks to himself</div>
+        <MainAppImage />
+      </TitleLink>
+
       <div>
         <LinksContainer>
           {links.map(({ key, to, name }) => (
