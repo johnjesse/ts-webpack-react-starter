@@ -11,17 +11,17 @@ const BlinkCursor = keyframes({
   '100%': { opacity: 0 },
 });
 
-const Container = styled.div<IThemedProps>({
-  border: 'solid 1px #fff',
-  width: 250,
-  height: 250,
+const Container = styled.div<IThemedProps>(({ theme }) => ({
+  color: theme.text01,
+  width: 200,
+  height: 200,
   '& > svg': {
     fill: 'none',
     stroke: 'currentColor',
     strokeWidth: '0.3px',
     strokeLinejoin: 'round',
   },
-});
+}));
 
 const sharedTSpanStyles: CSSObject = {
   fill: 'currentColor',

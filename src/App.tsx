@@ -5,7 +5,7 @@ import { Router } from '@reach/router';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { GlobalStyling, Theme } from './theme';
-import { Home, Blog, Contact, About, Test } from './pages';
+import { Home, Blog, Contact, About } from './pages';
 
 const Container = styled.div<{ canOverflow: boolean }>(({ canOverflow }) => ({
   minWidth: '15rem',
@@ -32,9 +32,8 @@ export const App = () => {
       <GlobalStyling />
       <Container canOverflow={!openMenu}>
         <Header openMenu={openMenu} onOpenMenuChange={setMenuOpen} />
-        <MainRouter>
-          <Test path="/" />
-          <Home path="/home" />
+        <MainRouter primary={false}>
+          <Home path="/" />
           <Blog path="/blog/" />
           <Contact path="/contact/" />
           <About path="/about/" />

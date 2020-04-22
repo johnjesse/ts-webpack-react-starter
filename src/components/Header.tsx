@@ -4,12 +4,15 @@ import { Link } from '@reach/router';
 
 import { AppLink } from './Hyperlink';
 import { LinkMenu } from './LinkMenu';
+import { MainAppImage } from './headericon/MainAppImage';
+import { IThemedProps } from '../theme';
 
-const Container = styled.header({
+const Container = styled.header<IThemedProps>(({ theme }) => ({
+  borderBottom: theme.strongBorder,
   padding: '1rem 0',
   display: 'flex',
   justifyContent: 'space-between',
-});
+}));
 
 const Title = styled.span({
   fontSize: '30px',
@@ -54,7 +57,9 @@ const Header = ({ openMenu, onOpenMenuChange }: IHeaderProps) => {
   return (
     <Container>
       <Title>
-        <Link to="/">John talks to himself</Link>
+        <Link to="/">
+          <MainAppImage />
+        </Link>
       </Title>
       <div>
         <LinksContainer>
