@@ -1,11 +1,11 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-import { HamburgerIcon } from './HamburgerIcon';
+import { HamburgerOrCloseIcon } from './HamburgerOrCloseIcon';
 import { IThemedProps } from '../theme';
 import { AppLink } from './Hyperlink';
 
-const StyledIcon = styled(HamburgerIcon)({
+const StyledIcon = styled(HamburgerOrCloseIcon)({
   width: '3rem',
   height: '3rem',
 });
@@ -55,10 +55,14 @@ const LinkMenu = ({ links, onOpenChange, open }: ILinkMenuProps) => {
   const buttonRef = React.useRef<HTMLButtonElement>(null);
   const handleLastItemBlur = () => buttonRef.current?.focus();
 
+  const handleOpenChange = () => {
+    onOpenChange(!open);
+  };
+
   return (
     <>
-      <Button ref={buttonRef} aria-label="Navigation links" onClick={() => onOpenChange(!open)}>
-        <StyledIcon />
+      <Button ref={buttonRef} aria-label="Navigation links" onClick={handleOpenChange}>
+        <StyledIcon hamburgerOrClose={open ? 'close' : 'hamburger'} />
       </Button>
       {open && (
         <Container>

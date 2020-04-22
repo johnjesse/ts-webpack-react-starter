@@ -37,14 +37,19 @@ const MenuContainer = styled.div({
 
 const links = [
   { name: 'Blog', to: '/blog/', key: 'blog-link' },
-  { name: 'About', to: '/about/', key: 'blog-link' },
-  { name: 'Contact', to: '/contact/', key: 'blog-link' },
+  { name: 'About', to: '/about/', key: 'about-link' },
+  { name: 'Contact', to: '/contact/', key: 'contact-link' },
 ];
 
-const Header = () => {
-  const [menuOpen, setMenuOpen] = React.useState(false);
+interface IHeaderProps {
+  openMenu: boolean;
+  onOpenMenuChange(open: boolean): void;
+}
 
-  const menuLinks = React.useMemo(() => links.map((l) => ({ ...l, action: () => setMenuOpen(false) })), [setMenuOpen]);
+const Header = ({ openMenu, onOpenMenuChange }: IHeaderProps) => {
+  const menuLinks = React.useMemo(() => links.map((l) => ({ ...l, action: () => onOpenMenuChange(false) })), [
+    onOpenMenuChange,
+  ]);
 
   return (
     <Container>
@@ -60,7 +65,7 @@ const Header = () => {
           ))}
         </LinksContainer>
         <MenuContainer>
-          <LinkMenu links={menuLinks} open={menuOpen} onOpenChange={setMenuOpen} />
+          <LinkMenu links={menuLinks} open={openMenu} onOpenChange={onOpenMenuChange} />
         </MenuContainer>
       </div>
     </Container>
